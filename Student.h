@@ -14,7 +14,7 @@ public:
 private:
 	// any private member variables and methods go here
 	// TO BE COMPLETED
-	const string &cwid;
-	const string &courseName;
+	string cwid;
+	string courseName;
 	char grade;
 };
