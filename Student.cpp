@@ -6,7 +6,7 @@ Student::Student() {
 	// TO BE COMPLETED
 	cwid = " "; 
 	courses = new string[50];
-	grade = new char[50]; 
+	grades = new char[50]; 
 	gpa = 0.0; 
 	counter = 0;
 }
@@ -15,9 +15,15 @@ Student::Student(const string &cwid) {
 	// TO BE COMPLETED
 	cwid = cwid; 
 	courses = new string[50];
-	grade = new char[50]; 
+	grades = new char[50]; 
 	gpa = 0.0; 
 	counter = 0; 
+}
+
+Student::~Student()
+{
+	delete [] courses; 
+	delete [] grades;
 }
 
 string Student::getCWID() {
@@ -72,4 +78,3 @@ void Student::printTranscript() {
 	}
 	cout << "GPA = " << gpa; 
 }
-
