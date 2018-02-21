@@ -1,7 +1,5 @@
 #include "Student.h"
-
 #include <iostream>
-
 Student::Student() {
 	// TO BE COMPLETED
 	cwid = " "; 
@@ -10,7 +8,6 @@ Student::Student() {
 	gpa = 0.0; 
 	counter = 0;
 }
-
 Student::Student(const string &cwid) {
 	// TO BE COMPLETED
 	cwid = cwid; 
@@ -19,18 +16,14 @@ Student::Student(const string &cwid) {
 	gpa = 0.0; 
 	counter = 0; 
 }
-
-Student::~Student()
-{
+Student::~Student() {
 	delete [] courses; 
 	delete [] grades;
 }
-
 string Student::getCWID() {
 	// TO BE COMPLETED
 	return cwid; 
 }
-
 void Student::addCourseGrade (const string &courseName, char grade) {
 	// TO BE COMPLETED
 	courses[counter] = courseName; 
@@ -40,12 +33,10 @@ void Student::addCourseGrade (const string &courseName, char grade) {
 	else
 		counter++; 
 }
-
 double Student::getGPA() {
 	// TO BE COMPLETED
 	double points = 0.0; 
-	for(int i = 0; i < counter; i++) 
-	{
+	for(int i = 0; i < counter; i++) {
 		if(grades[i] = 'A')
 			points += 4.0; 
 		else if(grades[i] = 'B')
@@ -62,7 +53,6 @@ double Student::getGPA() {
 	gpa = points/counter; 
 	return gpa; 
 }
-
 // print transcript in this (sample) format:
 // TRANSCRIPT FOR CWID=279750343
 // CS 121		C
@@ -72,8 +62,7 @@ double Student::getGPA() {
 void Student::printTranscript() {
 	// TO BE COMPLETED
 	cout << "TRANSCRIPT FOR CWID = " << cwid << endl; 
-	for(int i = 0; i < counter; i++) 
-	{
+	for(int i = 0; i < counter; i++) {
 		cout << courses[i] << "		" << grades[i] << endl; 
 	}
 	cout << "GPA = " << gpa; 
