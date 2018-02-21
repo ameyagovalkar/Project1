@@ -4,26 +4,57 @@
 
 Student::Student() {
 	// TO BE COMPLETED
-
+	cwid = " "; 
+	courses = new string[50];
+	grade = new char[50]; 
+	gpa = 0.0; 
+	counter = 0;
 }
 
 Student::Student(const string &cwid) {
 	// TO BE COMPLETED
-
+	cwid = cwid; 
+	courses = new string[50];
+	grade = new char[50]; 
+	gpa = 0.0; 
+	counter = 0; 
 }
 
 string Student::getCWID() {
 	// TO BE COMPLETED
+	return cwid; 
 }
 
 void Student::addCourseGrade (const string &courseName, char grade) {
 	// TO BE COMPLETED
-
+	courses[counter] = courseName; 
+	grades[counter] = grade; 
+	if(counter >= 50)
+		counter = 50; 
+	else
+		counter++; 
 }
 
 double Student::getGPA() {
 	// TO BE COMPLETED
-
+	double points = 0.0; 
+	for(int i = 0; i < counter; i++) 
+	{
+		if(grades[i] = 'A')
+			points += 4.0; 
+		else if(grades[i] = 'B')
+			points += 3.0; 
+		else if(grades[i] = 'C')
+			points += 2.0; 
+		else if(grades[i] = 'D')
+			points += 1.0; 
+		else if(grades[i] = 'F')
+			points += 0.0; 
+		else 
+			points += 0.0; 
+	}
+	gpa = points/counter; 
+	return gpa; 
 }
 
 // print transcript in this (sample) format:
@@ -34,6 +65,11 @@ double Student::getGPA() {
 // GPA = 2.6667
 void Student::printTranscript() {
 	// TO BE COMPLETED
-
+	cout << "TRANSCRIPT FOR CWID = " << cwid << endl; 
+	for(int i = 0; i < counter; i++) 
+	{
+		cout << courses[i] << "		" << grades[i] << endl; 
+	}
+	cout << "GPA = " << gpa; 
 }
 
