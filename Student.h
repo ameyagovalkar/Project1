@@ -15,6 +15,7 @@ private:
 	// any private member variables and methods go here
 	// TO BE COMPLETED
 	string cwid;
-	string courseName;
-	char grade;
+	string * courses;
+	char * grades;
+	double gpa;
 };
