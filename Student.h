@@ -18,4 +18,5 @@ private:
 	string * courses;
 	char * grades;
 	double gpa;
+	int counter; 
 };
