@@ -1,4 +1,4 @@
-#include "Student.h"
+=#include "Student.h"
 #include <iostream>
 Student::Student() {
 	// TO BE COMPLETED
@@ -37,15 +37,15 @@ double Student::getGPA() {
 	// TO BE COMPLETED
 	double points = 0.0; 
 	for(int i = 0; i < counter; i++) {
-		if(grades[i] = 'A')
+		if(grades[i] == 'A')
 			points += 4.0; 
-		else if(grades[i] = 'B')
+		else if(grades[i] == 'B')
 			points += 3.0; 
-		else if(grades[i] = 'C')
+		else if(grades[i] == 'C')
 			points += 2.0; 
-		else if(grades[i] = 'D')
+		else if(grades[i] == 'D')
 			points += 1.0; 
-		else if(grades[i] = 'F')
+		else if(grades[i] == 'F')
 			points += 0.0; 
 		else 
 			points += 0.0; 
