@@ -1,11 +1,20 @@
 #pragma once
 #include <string>
+
 using namespace std;
+
 class Student {
 public:
 	Student(); // default constructor
-	Student(const string &cwid); // constructor with parameter
-	Student~(); //deconstructor to delete the dynamically allocated arrays
+	Student(const string &cwid) {
+		// TO BE COMPLETED
+		StudentCWID = cwid;
+		courses = new string[50];
+		grades = new char[50];
+		gpa = 0.0;
+		counter = 0;
+	} // constructor with parameter
+	~Student(); //deconstructor to delete the dynamically allocated arrays
 	void addCourseGrade(const string &courseName, char grade); // add course name and grade to student's record
 	double getGPA(); // calculate and return GPA
 	void printTranscript(); // print transcript - see Student.cpp for the format
@@ -13,9 +22,9 @@ public:
 private:
 	// any private member variables and methods go here
 	// TO BE COMPLETED
-	string cwid;
+	string StudentCWID;
 	string * courses;
 	char * grades;
 	double gpa;
-	int counter; 
+	int counter;
 };
