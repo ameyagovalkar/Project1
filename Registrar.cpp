@@ -31,5 +31,12 @@ Student& Registrar::getStudent(string cwid) const {
 // process a line from the text file
 void Registrar::addLine(string courseName, string cwid, char grade) {
 	// TO BE COMPLETED
+	head = new node;
 
+	    node *temp = head;
+	    temp->cName = courseName;
+	    temp->id = cwid;
+	    temp->sGrade = grade;
+	  //temp->next = new node;
+	    temp = temp->next;
 }
