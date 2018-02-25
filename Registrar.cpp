@@ -3,9 +3,13 @@
 #include <fstream>
 #include <stdexcept>
 #include "Registrar.h"
+//#pragma warning (disable: 4101)
+
 using namespace std;
+
 // Load information from a text file with the given filename
 // THIS FUNCTION IS COMPLETE
+
 void Registrar::readTextfile(string filename) {
 	ifstream myfile(filename);
 	if (myfile.is_open()) {
@@ -24,19 +28,46 @@ void Registrar::readTextfile(string filename) {
 }
 // return Student object corresponding to a given CWID
 // getStudent must throw an exception if cwid is invalid
+
 Student& Registrar::getStudent(string cwid) const {
 	// TO BE COMPLETED
-	
+
+	int index = 0;
+
+	try {
+		for (int i = 0; i < counter; i++)
+		{
+			if (students[i]->getCWID() == cwid)
+			{
+				throw &students[i];
+				//return &students[index];
+				index = i;
+			}
+			else
+			{
+				throw 20;
+			}
+		}
+	}
+	catch (int)
+	{
+		cout << "Student does not exist";
+	}
+	return (Student&)students[index];
 }
+
 // process a line from the text file
 void Registrar::addLine(string courseName, string cwid, char grade) {
 	// TO BE COMPLETED
-	head = new node;
+	
+	if (getStudent(cwid).getCWID() == cwid)
+	{
+		getStudent(cwid).addCourseGrade(courseName, grade);
+	}
+	else
+	{
+		students[counter] =  &Student(cwid);
+	}
 
-	    node *temp = head;
-	    temp->cName = courseName;
-	    temp->id = cwid;
-	    temp->sGrade = grade;
-	  //temp->next = new node;
-	    temp = temp->next;
+	counter++;
 }
