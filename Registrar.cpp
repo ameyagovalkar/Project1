@@ -37,7 +37,7 @@ Student& Registrar::getStudent(string cwid) const {
 	{
 		if(students[i]->getCWID() == cwid)
 		{
-			return students[i];
+			return (Student *const)students[i];
 		}
 	}
 	throw exception();
@@ -54,7 +54,7 @@ void Registrar::addLine(string courseName, string cwid, char grade) {
 	}
 	else
 	{
-		students[counter] = Student(cwid);
+		students[counter] = (Student*)Student(cwid);
 	}
 
 	counter++;
