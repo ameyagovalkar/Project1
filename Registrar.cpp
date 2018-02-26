@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
+#include <typeinfo>
 #include "Registrar.h"
 //#pragma warning (disable: 4101)
 
@@ -32,41 +33,28 @@ void Registrar::readTextfile(string filename) {
 Student& Registrar::getStudent(string cwid) const {
 	// TO BE COMPLETED
 
-	int index = 0;
-
-	try {
-		for (int i = 0; i < counter; i++)
+	for (int i = 0; i < counter; i++)
+	{
+		if(students[i].getCWID() == cwid)
 		{
-			if (students[i]->getCWID() == cwid)
-			{
-				throw &students[i];
-				//return &students[index];
-				index = i;
-			}
-			else
-			{
-				throw 20;
-			}
+			return students[i];
 		}
 	}
-	catch (int)
-	{
-		cout << "Student does not exist";
-	}
-	return (Student&)students[index];
+	throw exception();
 }
+
 
 // process a line from the text file
 void Registrar::addLine(string courseName, string cwid, char grade) {
 	// TO BE COMPLETED
-	
+
 	if (getStudent(cwid).getCWID() == cwid)
 	{
 		getStudent(cwid).addCourseGrade(courseName, grade);
 	}
 	else
 	{
-		students[counter] =  &Student(cwid);
+		students[counter] = Student(cwid);
 	}
 
 	counter++;
