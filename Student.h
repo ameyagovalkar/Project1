@@ -19,6 +19,8 @@ public:
 	double getGPA(); // calculate and return GPA
 	void printTranscript(); // print transcript - see Student.cpp for the format
 	string getCWID(); // return the CWID of this student
+
+	friend class Registrar;
 private:
 	// any private member variables and methods go here
 	// TO BE COMPLETED
