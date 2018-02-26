@@ -12,7 +12,7 @@ public:
 		courses = new string[50];
 		grades = new char[50];
 		gpa = 0.0;
-		counter = 1;
+		counter = 0;
 	} // constructor with parameter
 	~Student(); //deconstructor to delete the dynamically allocated arrays
 	void addCourseGrade(const string &courseName, char grade); // add course name and grade to student's record
