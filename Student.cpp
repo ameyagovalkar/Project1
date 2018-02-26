@@ -33,22 +33,26 @@ void Student::addCourseGrade(const string &courseName, char grade) {
 double Student::getGPA() {
 	// TO BE COMPLETED
 	double points = 0.0;
+	double classes = 0;
+
 	for (int i = 0; i < counter; i++) {
-		if (grades[i] == 'A')
-			points += 4.0;
-		else if (grades[i] == 'B')
-			points += 3.0;
-		else if (grades[i] == 'C')
-			points += 2.0;
-		else if (grades[i] == 'D')
-			points += 1.0;
-		else if (grades[i] == 'F')
-			points += 0.0;
-		else
-			points += 0.0;
+		if (grades[i] != '0')
+		{
+			classes++;
+			if (grades[i] == 'A')
+				points += 4.0;
+			else if (grades[i] == 'B')
+				points += 3.0;
+			else if (grades[i] == 'C')
+				points += 2.0;
+			else if (grades[i] == 'D')
+				points += 1.0;
+		}
+
 	}
-	gpa = points / counter;
-	return gpa;
+
+	
+	return (points/classes);
 }
 // print transcript in this (sample) format:
 // TRANSCRIPT FOR CWID=279750343
