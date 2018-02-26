@@ -37,7 +37,7 @@ Student& Registrar::getStudent(string cwid) const {
 	{
 		if(students[i].getCWID() == cwid)
 		{
-			return *students[i];
+			return students[i];
 		}
 	}
 	throw exception();
