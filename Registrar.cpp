@@ -32,18 +32,18 @@ void Registrar::readTextfile(string filename) {
 
 Student& Registrar::getStudent(string cwid) const {
 	// TO BE COMPLETED
-	
-		for (int i = 0; i < size; i++)
+
+	for (int i = 0; i < size; i++)
+	{
+		if (cwid == students[i].getCWID())
 		{
-			if (cwid == students[i].getCWID())
-			{
-				return students[i];
-			}
-			else
-			{
-				throw invalid_argument("invalid CWID" + cwid);
-			}
+			return students[i];
 		}
+		else if (i == size - 1)
+		{
+			throw invalid_argument("Invalid CWID: " + cwid);
+		}
+	}
 }
 
 
@@ -51,19 +51,42 @@ Student& Registrar::getStudent(string cwid) const {
 void Registrar::addLine(string courseName, string cwid, char grade) {
 	// TO BE COMPLETED
 
-	if (cwid == getStudent(cwid).getCWID())
+	for (int i = 0; i < size; i++)
 	{
-		getStudent(cwid).addCourseGrade(courseName, grade);
+		if (cwid == students[i].getCWID())
+		{
+			students[i].addCourseGrade(courseName, grade);
+			return;
+		}
 	}
-	else
+
+	for (int i = 0; i < size; i++)
 	{
-		
-		students[size] = Student(cwid);
-		
+		if (students[i].getCWID() == "0")
+		{
+			students[i].StudentCWID = cwid;
+			students[i].addCourseGrade(courseName, grade);
+			return;
+		}
 	}
-	size++;
 }
 
 Registrar::~Registrar() {
-	deleteRegistrar();
+	delete[] students;
+
+}
+
+Registrar::Registrar()
+{
+	size = 50000;
+	students = new Student[size];
+}
+
+Registrar::Registrar(const Registrar& reg)
+{
+	students = new Student[size];
+	for (int i = 0; i < size; i++)
+	{
+		students[i] = reg.students[i];
+	}
 }
