@@ -6,7 +6,7 @@ using namespace std;
 
 Student::Student() {
 	// TO BE COMPLETED
-	StudentCWID = " ";
+	StudentCWID = "0";
 	courses = new string[50];
 	grades = new char[50];
 	gpa = 0.0;
@@ -18,6 +18,7 @@ Student::~Student() {
 }
 string Student::getCWID() {
 	// TO BE COMPLETED
+
 	return StudentCWID;
 }
 void Student::addCourseGrade(const string &courseName, char grade) {
