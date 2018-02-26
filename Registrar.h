@@ -12,16 +12,17 @@ public:
 	Student& getStudent(string cwid) const; // return the Student object corresponding to a given CWID
 											// getStudent must throw an exception if cwid is invalid
 											// add constructors, destructors, assignment operators if needed
-	
+
+
 private:
 	// Add private member variables for your class along with any 
 	// other variables required to implement the public member functions
 	// TO BE COMPLETED
-
-	int counter = 0;
+	int size;
+	int counter = 1;
 	string courseName;
 	string cwid;
 	char grade;
-	Student *students[50000];
-	
+	Student* students = new Student[50000];
+
 };
