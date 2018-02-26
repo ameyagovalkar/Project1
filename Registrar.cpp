@@ -64,7 +64,7 @@ void Registrar::addLine(string courseName, string cwid, char grade) {
 	{
 		if (students[i].getCWID() == "0")
 		{
-			students[i].StudentCWID = cwid;
+			students[i].studentCWID = cwid;
 			students[i].addCourseGrade(courseName, grade);
 			return;
 		}
