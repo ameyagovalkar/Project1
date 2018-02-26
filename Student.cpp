@@ -6,20 +6,27 @@ using namespace std;
 
 Student::Student() {
 	// TO BE COMPLETED
-	StudentCWID = "0";
+	studentCWID = "0";
 	courses = new string[50];
 	grades = new char[50];
 	gpa = 0.0;
 	counter = 0;
 }
+Student(const string &cwid) {
+	// TO BE COMPLETED
+	studentCWID = cwid;		
+	courses = new string[50];
+	grades = new char[50];
+	gpa = 0.0;
+	counter = 0;
+} 
 Student::~Student() {
 	delete[] courses;
 	delete[] grades;
 }
 string Student::getCWID() {
 	// TO BE COMPLETED
-
-	return StudentCWID;
+	return studentCWID;
 }
 void Student::addCourseGrade(const string &courseName, char grade) {
 	// TO BE COMPLETED
@@ -64,7 +71,7 @@ double Student::getGPA() {
 void Student::printTranscript() {
 	// TO BE COMPLETED
 
-	cout << "TRANSCRIPT FOR CWID = " << StudentCWID << endl;
+	cout << "TRANSCRIPT FOR CWID = " << studentCWID << endl;
 	for (int i = 0; i < counter; i++) {
 		cout << courses[i] << "		" << grades[i] << endl;
 	}
