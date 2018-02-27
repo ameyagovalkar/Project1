@@ -64,11 +64,13 @@ void Registrar::addLine(string courseName, string cwid, char grade) {
 	{
 		if (students[i].getCWID() == "0")
 		{
-			students[i].studentCWID = cwid;
+			students[i].StudentCWID = cwid;
 			students[i].addCourseGrade(courseName, grade);
 			return;
 		}
+		stored++;
 	}
+	
 }
 
 Registrar::~Registrar() {
@@ -80,13 +82,28 @@ Registrar::Registrar()
 {
 	size = 50000;
 	students = new Student[size];
+	stored = 0;
 }
 
 Registrar::Registrar(const Registrar& reg)
 {
-	students = new Student[size];
-	for (int i = 0; i < size; i++)
+	size = reg.size;
+	Student *copiedStudents = new Student[size];
+	
+	for (int i = 0; i < stored; i++)
 	{
-		students[i] = reg.students[i];
+		copiedStudents[i] = reg.students[i];
 	}
+}
+
+Registrar& Registrar::operator=(const Registrar&reg)
+{
+	size = reg.size;
+	Student* returnStudents = new Student[size];
+
+	for (int i = 0; i < stored; i++)
+	{
+		returnStudents[i] = reg.students[i];
+	}
+	return *this;
 }
