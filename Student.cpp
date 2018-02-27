@@ -30,13 +30,14 @@ void Student::addCourseGrade(const string &courseName, char grade) {
 	else
 		counter++;
 }
+
 double Student::getGPA() {
 	// TO BE COMPLETED
 	double points = 0.0;
-	double classes = 0;
+	double classes = 0.0;
 
 	for (int i = 0; i < counter; i++) {
-		if (grades[i] != '0')
+		if (grades[i] == 'A' || grades[i] == 'B' || grades[i] == 'C' || grades[i] == 'D' || grades[i] == 'F')
 		{
 			classes++;
 			if (grades[i] == 'A')
@@ -51,8 +52,8 @@ double Student::getGPA() {
 
 	}
 
-	
-	return (points/classes);
+	gpa = (points / classes);
+	return gpa;
 }
 // print transcript in this (sample) format:
 // TRANSCRIPT FOR CWID=279750343
@@ -71,7 +72,7 @@ void Student::printTranscript() {
 	cout << "GPA = " << getGPA() << endl;
 }
 
-Student::Student(const string &cwid)
+Student::Student(const string& cwid)
 {
 	// TO BE COMPLETED
 	StudentCWID = cwid;
@@ -81,17 +82,32 @@ Student::Student(const string &cwid)
 	counter = 0;
 }
 
+Student::Student(const Student& stu)
+{
+	Student studentTemp1;
+	int count = stu.counter;
+	studentTemp1.StudentCWID = stu.StudentCWID;
+
+	for (int i = 0; i < count; i++)
+	{
+		studentTemp1.grades[i] = stu.grades[i];
+		studentTemp1.courses[i] = stu.courses[i];
+	}
+	studentTemp1.gpa = stu.gpa;
+}
+
 Student& Student::operator=(const Student& stu)
 {
 	Student studentTemp;
+	int count = stu.counter;
 	studentTemp.StudentCWID = stu.StudentCWID;
 
-	for (int i = 0; i < counter; i++)
+	for (int i = 0; i < count; i++)
 	{
 		studentTemp.grades[i] = stu.grades[i];
 		studentTemp.courses[i] = stu.courses[i];
 	}
 		studentTemp.gpa = stu.gpa;
-		return studentTemp;
+		return *this;
 
 }
