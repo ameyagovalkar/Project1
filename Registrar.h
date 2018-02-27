@@ -15,8 +15,8 @@ public:
 
 	Registrar();                           //registrar constructor, creates dynamic array students
 	~Registrar();                          //registrar destructor, deletes dynamic array students
-	Registrar(const Registrar& reg);       //copy constructor
-	Registrar& Registrar::operator=(const Registrar& reg);         //assignment operator
+	//Registrar(const Registrar& reg);       //copy constructor
+	//Registrar& Registrar::operator=(const Registrar& reg);         //assignment operator
 
 private:
 	// Add private member variables for your class along with any 
