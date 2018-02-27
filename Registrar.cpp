@@ -74,7 +74,7 @@ void Registrar::addLine(string courseName, string cwid, char grade) {
 }
 
 Registrar::~Registrar() {
-	delete[] students;
+	//delete[] students;
 
 }
 
@@ -84,7 +84,7 @@ Registrar::Registrar()
 	students = new Student[size];
 	stored = 0;
 }
-
+/*
 Registrar::Registrar(const Registrar& reg)
 {
 	int s = reg.size;
@@ -107,3 +107,4 @@ Registrar& Registrar::operator=(const Registrar& reg)
 	}
 	return *this;
 }
+*/
