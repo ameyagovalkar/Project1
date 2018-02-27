@@ -81,7 +81,7 @@ Student::Student(const string& cwid)
 	gpa = 0.0;
 	counter = 0;
 }
-
+/*
 Student::Student(const Student& stu)
 {
 	Student studentTemp1;
@@ -110,4 +110,4 @@ Student& Student::operator=(const Student& stu)
 		studentTemp.gpa = stu.gpa;
 		return *this;
 
-}
+}*/
