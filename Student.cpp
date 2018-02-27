@@ -6,27 +6,20 @@ using namespace std;
 
 Student::Student() {
 	// TO BE COMPLETED
-	studentCWID = "0";
+	StudentCWID = "0";
 	courses = new string[50];
 	grades = new char[50];
 	gpa = 0.0;
 	counter = 0;
 }
-Student(const string &cwid) {
-	// TO BE COMPLETED
-	studentCWID = cwid;		
-	courses = new string[50];
-	grades = new char[50];
-	gpa = 0.0;
-	counter = 0;
-} 
 Student::~Student() {
-	delete[] courses;
-	delete[] grades;
+	//delete[] courses;
+	//delete[] grades;
 }
 string Student::getCWID() {
 	// TO BE COMPLETED
-	return studentCWID;
+
+	return StudentCWID;
 }
 void Student::addCourseGrade(const string &courseName, char grade) {
 	// TO BE COMPLETED
@@ -71,9 +64,34 @@ double Student::getGPA() {
 void Student::printTranscript() {
 	// TO BE COMPLETED
 
-	cout << "TRANSCRIPT FOR CWID = " << studentCWID << endl;
+	cout << endl << "TRANSCRIPT FOR CWID = " << StudentCWID << endl;
 	for (int i = 0; i < counter; i++) {
 		cout << courses[i] << "		" << grades[i] << endl;
 	}
-	cout << "GPA = " << gpa;
+	cout << "GPA = " << getGPA() << endl;
+}
+
+Student::Student(const string &cwid)
+{
+	// TO BE COMPLETED
+	StudentCWID = cwid;
+	courses = new string[50];
+	grades = new char[50];
+	gpa = 0.0;
+	counter = 0;
+}
+
+Student& Student::operator=(const Student& stu)
+{
+	Student studentTemp;
+	studentTemp.StudentCWID = stu.StudentCWID;
+
+	for (int i = 0; i < counter; i++)
+	{
+		studentTemp.grades[i] = stu.grades[i];
+		studentTemp.courses[i] = stu.courses[i];
+	}
+		studentTemp.gpa = stu.gpa;
+		return studentTemp;
+
 }
