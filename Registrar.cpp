@@ -87,21 +87,21 @@ Registrar::Registrar()
 
 Registrar::Registrar(const Registrar& reg)
 {
-	size = reg.size;
+	int s = reg.size;
 	Student *copiedStudents = new Student[size];
 	
-	for (int i = 0; i < stored; i++)
+	for (int i = 0; i < s; i++)
 	{
 		copiedStudents[i] = reg.students[i];
 	}
 }
 
-Registrar& Registrar::operator=(const Registrar&reg)
+Registrar& Registrar::operator=(const Registrar& reg)
 {
-	size = reg.size;
+	int s = reg.size;
 	Student* returnStudents = new Student[size];
 
-	for (int i = 0; i < stored; i++)
+	for (int i = 0; i < s; i++)
 	{
 		returnStudents[i] = reg.students[i];
 	}
