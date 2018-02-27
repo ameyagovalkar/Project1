@@ -14,8 +14,8 @@ public:
 	void printTranscript(); // print transcript - see Student.cpp for the format
 	string getCWID(); // return the CWID of this student
 
-	Student(const Student& stu);
-	Student& Student::operator=(const Student& stu);
+	/*Student(const Student& stu);
+	Student& Student::operator=(const Student& stu);*/
 
 	friend class Registrar;
 private:
